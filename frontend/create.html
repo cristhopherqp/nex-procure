@@ -1,0 +1,1747 @@
+<!doctype html>
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <title>NexoB2B - Plataforma de Compras y Licitaciones B2B</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#00174b",
+              "urgency-baja-text-light": "#15803D",
+              "tertiary-fixed-dim": "#adc6ff",
+              "surface-dark": "#1E293B",
+              "primary-fixed-dim": "#b6c4ff",
+              "on-secondary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#0b1c30",
+              "status-cerrado-text": "#475569",
+              error: "#ba1a1a",
+              outline: "#757682",
+              "border-subtle-light": "#E2E8F0",
+              "urgency-baja-border-dark": "#22C55E50",
+              "surface-bright": "#f8f9ff",
+              "surface-dim": "#cbdbf5",
+              "secondary-fixed-dim": "#b4c5ff",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "primary-container": "#1e3a8a",
+              "urgency-media-bg-light": "#FEF3C7",
+              "surface-container-high": "#dce9ff",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed": "#001a42",
+              "app-bg-dark": "#0B0F19",
+              "urgency-baja-bg-dark": "#14532D40",
+              "urgency-alta-bg-dark": "#7F1D1D40",
+              "border-subtle-dark": "#334155",
+              "text-muted-dark": "#94A3B8",
+              "on-surface-variant": "#444651",
+              "urgency-alta-border-dark": "#DC262650",
+              "on-primary-fixed-variant": "#264191",
+              "text-muted-light": "#64748B",
+              "urgency-media-text-dark": "#FCD34D",
+              surface: "#f8f9ff",
+              "on-error-container": "#93000a",
+              "surface-container-highest": "#d3e4fe",
+              "urgency-alta-bg-light": "#FEE2E2",
+              "on-secondary-container": "#fefcff",
+              "surface-variant": "#d3e4fe",
+              "urgency-baja-bg-light": "#DCFCE7",
+              "on-tertiary-container": "#82abff",
+              tertiary: "#00285e",
+              "urgency-alta-text-light": "#B91C1C",
+              "on-background": "#0b1c30",
+              "on-secondary-fixed-variant": "#003ea8",
+              "app-bg-light": "#F8FAFC",
+              "text-primary-light": "#0F172A",
+              "status-cerrado-bg": "#F1F5F9",
+              "tertiary-container": "#003d88",
+              "on-tertiary-fixed-variant": "#004395",
+              secondary: "#0051d5",
+              "on-primary-fixed": "#00164e",
+              "urgency-media-text-light": "#B45309",
+              background: "#f8f9ff",
+              "secondary-container": "#316bf3",
+              "urgency-media-bg-dark": "#78350F40",
+              "urgency-baja-text-dark": "#86EFAC",
+              "inverse-primary": "#b6c4ff",
+              "status-abierto-bg": "#E0F2FE",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#d8e2ff",
+              "surface-container": "#e5eeff",
+              "urgency-alta-text-dark": "#FCA5A5",
+              "primary-fixed": "#dce1ff",
+              "inverse-on-surface": "#eaf1ff",
+              "surface-light": "#FFFFFF",
+              "status-abierto-text": "#0369A1",
+              "secondary-fixed": "#dbe1ff",
+              "surface-container-low": "#eff4ff",
+              "on-primary-container": "#90a8ff",
+              "text-primary-dark": "#F8FAFC",
+              "urgency-media-border-dark": "#F59E0B50",
+              "inverse-surface": "#213145",
+              "status-adjudicado-text": "#6D28D9",
+              "status-adjudicado-bg": "#EDE9FE",
+              "surface-tint": "#4059aa",
+              primary: "#00236f",
+              "outline-variant": "#c5c5d3",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "space-sm": "0.5rem",
+              "margin-mobile": "1rem",
+              "space-xl": "1.75rem",
+              "space-xs": "0.25rem",
+              "space-md": "0.75rem",
+              "space-lg": "1.25rem",
+              margin: "2rem",
+              "gutter-sm": "1rem",
+              "space-2xl": "2.5rem",
+              gutter: "1.5rem",
+            },
+            fontFamily: {
+              "body-sm": ["Inter"],
+              "headline-md": ["Inter"],
+              "body-md": ["Inter"],
+              "display-hero": ["Inter"],
+              "label-md": ["Inter"],
+              "headline-lg": ["Inter"],
+              "label-lg": ["Inter"],
+              "display-hero-mobile": ["Inter"],
+              "label-sm": ["Inter"],
+              "body-lg": ["Inter"],
+              "headline-sm": ["Inter"],
+              "numeric-metric": ["Inter"],
+            },
+            fontSize: {
+              "body-sm": ["0.75rem", { lineHeight: "1rem", fontWeight: "400" }],
+              "headline-md": [
+                "1.25rem",
+                {
+                  lineHeight: "1.75rem",
+                  letterSpacing: "-0.015em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": [
+                "0.875rem",
+                { lineHeight: "1.25rem", fontWeight: "400" },
+              ],
+              "display-hero": [
+                "2.25rem",
+                {
+                  lineHeight: "2.75rem",
+                  letterSpacing: "-0.025em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "0.75rem",
+                {
+                  lineHeight: "1rem",
+                  letterSpacing: "0.025em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg": [
+                "1.5rem",
+                {
+                  lineHeight: "2rem",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-lg": [
+                "0.875rem",
+                {
+                  lineHeight: "1.25rem",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "display-hero-mobile": [
+                "1.75rem",
+                {
+                  lineHeight: "2.25rem",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-sm": [
+                "0.6875rem",
+                {
+                  lineHeight: "0.875rem",
+                  letterSpacing: "0.05em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": ["1rem", { lineHeight: "1.5rem", fontWeight: "400" }],
+              "headline-sm": [
+                "1.125rem",
+                {
+                  lineHeight: "1.5rem",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "numeric-metric": [
+                "1.125rem",
+                {
+                  lineHeight: "1.5rem",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-app-bg-light dark:bg-app-bg-dark text-on-surface dark:text-text-primary-dark transition-colors duration-200 antialiased selection:bg-secondary-container selection:text-on-secondary"
+  >
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
+    >
+      <div
+        class="h-16 max-w-[1440px] mx-auto px-gutter-sm lg:px-gutter flex items-center justify-between gap-space-md"
+      >
+        <div class="flex items-center gap-space-lg shrink-0">
+          <a
+            class="flex items-center gap-space-xs focus:outline-none"
+            data-path="licitaciones-requerimientos"
+            href="#"
+            ><span
+              class="font-headline-lg text-headline-lg tracking-tight text-primary dark:text-primary-fixed font-bold"
+              >Nexo<span class="text-secondary dark:text-secondary-fixed-dim"
+                >B2B</span
+              ></span
+            ><span
+              class="bg-surface-container-high dark:bg-surface-container text-primary dark:text-primary-fixed font-label-sm text-label-sm px-1.5 py-0.5 rounded-lg tracking-wider font-bold uppercase"
+              >B2B</span
+            ></a
+          >
+          <nav
+            class="hidden xl:flex items-center gap-space-xs"
+            data-active-classes="bg-surface-container-high text-primary dark:bg-surface-container dark:text-primary-fixed font-semibold rounded-lg"
+          >
+            <a
+              class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low dark:hover:bg-surface-dark transition-colors rounded-lg"
+              data-path="licitaciones-requerimientos"
+              href="#"
+              >Licitaciones / Requerimientos</a
+            ><a
+              class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low dark:hover:bg-surface-dark transition-colors rounded-lg"
+              data-path="proveedores"
+              href="#"
+              >Proveedores</a
+            ><a
+              class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low dark:hover:bg-surface-dark transition-colors rounded-lg"
+              data-path="mis-cotizaciones"
+              href="#"
+              >Mis Cotizaciones</a
+            ><a
+              class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low dark:hover:bg-surface-dark transition-colors rounded-lg"
+              data-path="analitica"
+              href="#"
+              >Analítica</a
+            >
+          </nav>
+        </div>
+        <div class="flex-1 max-w-md mx-space-sm hidden md:block">
+          <div class="relative flex items-center">
+            <span
+              class="material-symbols-outlined absolute left-3 text-outline text-[18px] pointer-events-none select-none"
+              >search</span
+            ><input
+              class="w-full h-10 pl-9 pr-12 bg-surface-container-lowest dark:bg-surface-dark text-on-surface dark:text-text-primary-dark font-body-sm text-body-sm rounded-lg shadow-none focus:outline-none focus:ring-1 focus:ring-secondary focus:bg-surface-light dark:focus:bg-surface-dark transition-all placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark"
+              placeholder="Buscar por código, producto o licitación..."
+              type="search"
+            />
+            <div class="absolute right-2.5 flex items-center">
+              <kbd
+                class="hidden lg:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono text-outline dark:text-text-muted-dark bg-surface-container dark:bg-surface-container-lowest/10 rounded font-bold"
+                >⌘K</kbd
+              >
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-space-sm shrink-0">
+          <button
+            aria-label="Cambiar tema claro u oscuro"
+            class="w-9 h-9 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface dark:hover:bg-surface-container transition-colors"
+            id="theme-toggle-btn"
+            onclick="document.documentElement.classList.toggle('dark')"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[20px] dark:hidden"
+              >dark_mode</span
+            ><span
+              class="material-symbols-outlined text-[20px] hidden dark:inline-block"
+              >light_mode</span
+            ></button
+          ><button
+            aria-label="Ver notificaciones"
+            class="relative w-9 h-9 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface dark:hover:bg-surface-container transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[20px]"
+              >notifications</span
+            ><span
+              class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full ring-2 ring-surface-light dark:ring-surface-dark"
+            ></span>
+          </button>
+          <div
+            class="h-6 w-px bg-surface-container-high dark:bg-surface-container mx-space-xs hidden sm:block"
+          ></div>
+          <button
+            class="hidden sm:flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-left hover:bg-surface-container-high hover:text-on-surface dark:hover:bg-surface-container transition-colors group"
+            type="button"
+          >
+            <div
+              class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"
+            >
+              <span
+                class="material-symbols-outlined text-on-primary text-[18px]"
+                >person</span
+              >
+            </div>
+            <div class="flex flex-col">
+              <span
+                class="font-label-md text-label-md text-on-surface dark:text-text-primary-dark font-semibold leading-tight group-hover:text-primary dark:group-hover:text-primary-fixed"
+                >Minera del Sur S.A.</span
+              ><span
+                class="font-label-sm text-label-sm text-text-muted-light dark:text-text-muted-dark leading-tight"
+                >RUC 20549812401</span
+              >
+            </div>
+            <span
+              class="material-symbols-outlined text-[18px] text-outline group-hover:text-on-surface transition-transform"
+              >expand_more</span
+            ></button
+          ><a
+            class="inline-flex items-center justify-center gap-space-xs px-space-md py-2 bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg shadow-sm hover:shadow transition-all font-semibold shrink-0"
+            data-path="publicar-requerimiento"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px]">add</span
+            ><span class="hidden sm:inline">Publicar Requerimiento</span></a
+          >
+        </div>
+      </div>
+    </header>
+    <main class="w-full pt-16 bg-app-bg-light dark:bg-app-bg-dark min-h-screen">
+      <div class="flex flex-col w-full">
+        <div
+          class="max-w-[1440px] w-full mx-auto px-gutter-sm lg:px-gutter py-space-xl flex flex-col gap-space-xl"
+        >
+          <!-- Top Breadcrumb & Page Header -->
+          <div class="flex flex-col gap-space-md">
+            <!-- Breadcrumbs -->
+            <nav
+              aria-label="Breadcrumb"
+              class="flex items-center gap-space-xs font-label-md text-label-md text-text-muted-light dark:text-text-muted-dark"
+            >
+              <a
+                class="hover:text-primary dark:hover:text-primary-fixed transition-colors flex items-center gap-1"
+                href="#"
+              >
+                <span class="material-symbols-outlined text-[16px]"
+                  >folder_open</span
+                >
+                <span>Catálogo de Licitaciones</span>
+              </a>
+              <span class="material-symbols-outlined text-[14px] text-outline"
+                >chevron_right</span
+              >
+              <span
+                class="text-on-surface dark:text-text-primary-dark font-semibold"
+                >Nueva Licitación</span
+              >
+            </nav>
+            <!-- Title & Subtitle + Progress Tracker Strip -->
+            <div
+              class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-lg"
+            >
+              <div class="flex flex-col gap-1 max-w-2xl">
+                <div class="flex items-center gap-space-sm mb-1">
+                  <span
+                    class="bg-surface-container-high dark:bg-surface-container text-primary dark:text-primary-fixed text-label-sm font-label-sm font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
+                  >
+                    Módulo de Contrataciones B2B
+                  </span>
+                  <span
+                    class="flex items-center gap-1 text-urgency-baja-text-light dark:text-urgency-baja-text-dark text-label-sm font-label-sm font-semibold"
+                  >
+                    <span
+                      class="w-2 h-2 rounded-full bg-urgency-baja-text-light dark:bg-urgency-baja-text-dark animate-pulse"
+                    ></span>
+                    Sesión Segura y Auditada
+                  </span>
+                </div>
+                <h1
+                  class="font-display-hero text-display-hero text-text-primary-light dark:text-text-primary-dark leading-tight tracking-tight"
+                >
+                  Publicar Requerimiento de Abastecimiento
+                </h1>
+                <p
+                  class="font-body-md text-body-md text-text-muted-light dark:text-text-muted-dark"
+                >
+                  Completa las especificaciones técnicas y condiciones
+                  comerciales para recibir cotizaciones formales de proveedores
+                  homologados en tiempo récord.
+                </p>
+              </div>
+              <!-- 3-Step Horizontal Stepper -->
+              <div
+                class="bg-surface-light dark:bg-surface-dark p-2 rounded-xl shadow-sm flex items-center gap-2 sm:gap-4 shrink-0"
+              >
+                <!-- Step 1 (Completed) -->
+                <div class="flex items-center gap-2">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-label-md text-label-md font-bold shadow-sm"
+                  >
+                    <span class="material-symbols-outlined text-[18px]"
+                      >check</span
+                    >
+                  </div>
+                  <div class="hidden sm:flex flex-col">
+                    <span
+                      class="font-label-sm text-label-sm text-text-muted-light dark:text-text-muted-dark uppercase tracking-wider"
+                      >Paso 1</span
+                    >
+                    <span
+                      class="font-label-md text-label-md text-text-primary-light dark:text-text-primary-dark font-semibold"
+                      >Entidad</span
+                    >
+                  </div>
+                </div>
+                <div class="w-6 sm:w-10 h-0.5 bg-primary-container"></div>
+                <!-- Step 2 (Active) -->
+                <div class="flex items-center gap-2">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md font-bold shadow-md"
+                  >
+                    2
+                  </div>
+                  <div class="hidden sm:flex flex-col">
+                    <span
+                      class="font-label-sm text-label-sm text-primary dark:text-primary-fixed uppercase tracking-wider font-bold"
+                      >Paso 2</span
+                    >
+                    <span
+                      class="font-label-md text-label-md text-text-primary-light dark:text-text-primary-dark font-bold"
+                      >Ficha Técnica</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="w-6 sm:w-10 h-0.5 bg-surface-container-high dark:bg-surface-container"
+                ></div>
+                <!-- Step 3 (Pending) -->
+                <div class="flex items-center gap-2 opacity-80">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-surface-container dark:bg-surface-container-high text-on-surface-variant flex items-center justify-center font-label-md text-label-md font-bold"
+                  >
+                    3
+                  </div>
+                  <div class="hidden sm:flex flex-col">
+                    <span
+                      class="font-label-sm text-label-sm text-text-muted-light dark:text-text-muted-dark uppercase tracking-wider"
+                      >Paso 3</span
+                    >
+                    <span
+                      class="font-label-md text-label-md text-text-muted-light dark:text-text-muted-dark"
+                      >Cronograma</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Main Two-Column Workflow -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+            <!-- Left Column: Primary Structured Form (approx 70% -> 8 of 12 cols) -->
+            <form
+              class="lg:col-span-8 flex flex-col gap-space-xl"
+              id="procurement-form"
+              onsubmit="event.preventDefault()"
+            >
+              <!-- Section Card 1: Datos de la Entidad Compradora -->
+              <div
+                class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm p-space-xl flex flex-col gap-space-lg transition-all"
+              >
+                <div
+                  class="flex flex-wrap items-center justify-between gap-space-sm pb-space-sm"
+                >
+                  <div class="flex items-center gap-space-sm">
+                    <div
+                      class="w-10 h-10 rounded-lg bg-surface-container-low dark:bg-surface-container flex items-center justify-center text-primary dark:text-primary-fixed"
+                    >
+                      <span class="material-symbols-outlined text-[24px]"
+                        >apartment</span
+                      >
+                    </div>
+                    <div class="flex flex-col">
+                      <h2
+                        class="font-headline-sm text-headline-sm text-text-primary-light dark:text-text-primary-dark font-bold"
+                      >
+                        1. Datos de la Entidad Compradora
+                      </h2>
+                      <span
+                        class="font-body-sm text-body-sm text-text-muted-light dark:text-text-muted-dark"
+                      >
+                        Información fiscal certificada por los registros
+                        maestros del corporativo
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-urgency-baja-bg-light dark:bg-urgency-baja-bg-dark text-urgency-baja-text-light dark:text-urgency-baja-text-dark font-label-sm text-label-sm font-bold tracking-wide"
+                  >
+                    <span class="material-symbols-outlined text-[16px]"
+                      >verified</span
+                    >
+                    <span>SUNAT Activo y Habido</span>
+                  </div>
+                </div>
+                <!-- Form Fields Grid -->
+                <div
+                  class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs"
+                >
+                  <!-- RUC Comprador -->
+                  <div class="flex flex-col gap-1.5">
+                    <label
+                      class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark flex items-center justify-between"
+                      for="buyer-ruc"
+                    >
+                      <span>RUC Comprador</span>
+                      <span
+                        class="font-label-sm text-label-sm text-text-muted-light dark:text-text-muted-dark"
+                        >ID Tributario Perú</span
+                      >
+                    </label>
+                    <div class="relative flex items-center">
+                      <span
+                        class="material-symbols-outlined absolute left-3 text-outline text-[20px] pointer-events-none"
+                        >fingerprint</span
+                      >
+                      <input
+                        class="w-full h-11 pl-10 pr-28 bg-surface-container-lowest dark:bg-surface-container font-numeric-metric text-numeric-metric text-text-primary-light dark:text-text-primary-dark rounded-lg cursor-not-allowed focus:outline-none"
+                        id="buyer-ruc"
+                        readonly=""
+                        type="text"
+                        value="20549812401"
+                      />
+                      <div
+                        class="absolute right-2.5 flex items-center gap-1 bg-urgency-baja-bg-light dark:bg-urgency-baja-bg-dark text-urgency-baja-text-light dark:text-urgency-baja-text-dark font-label-sm text-label-sm px-2 py-0.5 rounded font-bold"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >check_circle</span
+                        >
+                        <span>Validado</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Razón Social -->
+                  <div class="flex flex-col gap-1.5">
+                    <label
+                      class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark flex items-center justify-between"
+                      for="buyer-name"
+                    >
+                      <span>Razón Social Registrada</span>
+                      <span class="font-label-sm text-label-sm text-secondary"
+                        >Cuenta Maestra</span
+                      >
+                    </label>
+                    <div class="relative flex items-center">
+                      <span
+                        class="material-symbols-outlined absolute left-3 text-outline text-[20px] pointer-events-none"
+                        >domain</span
+                      >
+                      <input
+                        class="w-full h-11 pl-10 pr-3 bg-surface-container-lowest dark:bg-surface-container font-label-lg text-label-lg text-text-primary-light dark:text-text-primary-dark font-bold rounded-lg cursor-not-allowed focus:outline-none"
+                        id="buyer-name"
+                        readonly=""
+                        type="text"
+                        value="Minera del Sur S.A."
+                      />
+                    </div>
+                  </div>
+                  <!-- Almacén / Planta de Destino -->
+                  <div class="flex flex-col gap-1.5 md:col-span-2">
+                    <label
+                      class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark flex items-center justify-between"
+                      for="buyer-location"
+                    >
+                      <span>Almacén / Planta de Destino y Descarga</span>
+                      <span
+                        class="font-label-sm text-label-sm text-primary dark:text-primary-fixed"
+                        >Punto de Entrega DDP</span
+                      >
+                    </label>
+                    <div class="relative flex items-center">
+                      <span
+                        class="material-symbols-outlined absolute left-3 text-secondary text-[20px] pointer-events-none"
+                        >warehouse</span
+                      >
+                      <input
+                        class="w-full h-11 pl-10 pr-10 bg-surface-light dark:bg-surface-container-low text-text-primary-light dark:text-text-primary-dark font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all"
+                        id="buyer-location"
+                        type="text"
+                        value="Mina Cuajone - Almacén Central N° 3, Moquegua"
+                      />
+                      <span
+                        class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none"
+                        >pin_drop</span
+                      >
+                    </div>
+                    <p
+                      class="font-body-sm text-body-sm text-text-muted-light dark:text-text-muted-dark"
+                    >
+                      El proveedor seleccionado deberá coordinar el pase de
+                      ingreso de conductores y unidades con homologación minera
+                      previa.
+                    </p>
+                  </div>
+                  <!-- Responsable de Adquisición -->
+                  <div class="flex flex-col gap-1.5">
+                    <label
+                      class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark"
+                      for="buyer-manager"
+                    >
+                      Responsable Técnico / Adquisición
+                    </label>
+                    <div class="relative flex items-center">
+                      <span
+                        class="material-symbols-outlined absolute left-3 text-outline text-[20px] pointer-events-none"
+                        >badge</span
+                      >
+                      <input
+                        class="w-full h-11 pl-10 pr-3 bg-surface-light dark:bg-surface-container-low text-text-primary-light dark:text-text-primary-dark font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all"
+                        id="buyer-manager"
+                        type="text"
+                        value="Ing. Carlos Mendoza Paredes (Jefatura de Abastecimiento)"
+                      />
+                    </div>
+                  </div>
+                  <!-- Correo de Notificaciones -->
+                  <div class="flex flex-col gap-1.5">
+                    <label
+                      class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark"
+                      for="buyer-email"
+                    >
+                      Correo Corporativo de Notificaciones
+                    </label>
+                    <div class="relative flex items-center">
+                      <span
+                        class="material-symbols-outlined absolute left-3 text-outline text-[20px] pointer-events-none"
+                        >alternate_email</span
+                      >
+                      <input
+                        class="w-full h-11 pl-10 pr-3 bg-surface-light dark:bg-surface-container-low text-text-primary-light dark:text-text-primary-dark font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all"
+                        id="buyer-email"
+                        type="email"
+                        value="adquisiciones@mineradelsur.com.pe"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Section Card 2: Especificaciones Técnicas del Bien o Servicio -->
+              <div
+                class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm p-space-xl flex flex-col gap-space-lg transition-all"
+              >
+                <div
+                  class="flex flex-wrap items-center justify-between gap-space-sm pb-space-sm"
+                >
+                  <div class="flex items-center gap-space-sm">
+                    <div
+                      class="w-10 h-10 rounded-lg bg-surface-container-low dark:bg-surface-container flex items-center justify-center text-primary dark:text-primary-fixed"
+                    >
+                      <span class="material-symbols-outlined text-[24px]"
+                        >assignment</span
+                      >
+                    </div>
+                    <div class="flex flex-col">
+                      <h2
+                        class="font-headline-sm text-headline-sm text-text-primary-light dark:text-text-primary-dark font-bold"
+                      >
+                        2. Especificaciones Técnicas del Bien o Servicio
+                      </h2>
+                      <span
+                        class="font-body-sm text-body-sm text-text-muted-light dark:text-text-muted-dark"
+                      >
+                        Detalla con exactitud los requerimientos para filtrar
+                        ofertas que cumplan la normativa
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high dark:bg-surface-container text-primary dark:text-primary-fixed font-label-sm text-label-sm font-semibold"
+                  >
+                    <span
+                      class="w-2 h-2 rounded-full bg-primary dark:bg-primary-fixed"
+                    ></span>
+                    <span>Campos Mandatorios</span>
+                  </div>
+                </div>
+                <!-- Fields Grid -->
+                <div class="flex flex-col gap-space-md">
+                  <!-- Título del Requerimiento -->
+                  <div class="flex flex-col gap-1.5">
+                    <label
+                      class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark flex items-center justify-between"
+                      for="req-title"
+                    >
+                      <span
+                        >Título de la Convocatoria / Objeto del Requerimiento
+                        *</span
+                      >
+                      <span
+                        class="font-body-sm text-body-sm text-text-muted-light dark:text-text-muted-dark"
+                        id="char-counter"
+                        >85 / 120 caracteres</span
+                      >
+                    </label>
+                    <input
+                      class="w-full h-11 px-3.5 bg-surface-light dark:bg-surface-container-low text-text-primary-light dark:text-text-primary-dark font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all"
+                      id="req-title"
+                      maxlength="120"
+                      type="text"
+                      value="Suministro de Repuestos y Mangueras Hidráulicas de Alta Presión para Maquinaria Pesada"
+                    />
+                  </div>
+                  <!-- Categoría & Centro de Costos & Urgencia Grid -->
+                  <div class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+                    <!-- Categoría -->
+                    <div class="flex flex-col gap-1.5 md:col-span-4">
+                      <label
+                        class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark"
+                        for="req-category"
+                      >
+                        Categoría Industrial *
+                      </label>
+                      <div class="relative flex items-center">
+                        <select
+                          class="w-full h-11 pl-3.5 pr-10 appearance-none bg-surface-light dark:bg-surface-container-low text-text-primary-light dark:text-text-primary-dark font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all cursor-pointer"
+                          id="req-category"
+                        >
+                          <option selected="" value="Mantenimiento Industrial">
+                            Mantenimiento Industrial
+                          </option>
+                          <option value="Empaques y Embalajes">
+                            Empaques y Embalajes
+                          </option>
+                          <option value="Materia Prima">Materia Prima</option>
+                          <option value="Logística y Transporte">
+                            Logística y Transporte
+                          </option>
+                          <option value="Servicios TI">
+                            Servicios TI Corporativos
+                          </option>
+                        </select>
+                        <span
+                          class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none"
+                          >expand_more</span
+                        >
+                      </div>
+                    </div>
+                    <!-- Código Interno / Centro de Costos -->
+                    <div class="flex flex-col gap-1.5 md:col-span-3">
+                      <label
+                        class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark"
+                        for="cost-center"
+                      >
+                        Centro de Costos / SAP
+                      </label>
+                      <div class="relative flex items-center">
+                        <input
+                          class="w-full h-11 px-3.5 bg-surface-light dark:bg-surface-container-low text-text-primary-light dark:text-text-primary-dark font-mono text-body-sm font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all uppercase"
+                          id="cost-center"
+                          type="text"
+                          value="CC-2026-OP-MIN-089"
+                        />
+                      </div>
+                    </div>
+                    <!-- Nivel de Urgencia (Segmented Buttons / Chips) -->
+                    <div class="flex flex-col gap-1.5 md:col-span-5">
+                      <label
+                        class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark"
+                      >
+                        Nivel de Urgencia Operativa
+                      </label>
+                      <div
+                        class="grid grid-cols-3 gap-2 h-11"
+                        id="urgency-chips"
+                      >
+                        <!-- Baja -->
+                        <button
+                          class="urgency-chip h-full flex items-center justify-center gap-1.5 rounded-lg bg-surface-container dark:bg-surface-container-low text-text-muted-light dark:text-text-muted-dark font-label-md text-label-md hover:bg-surface-container-high transition-all"
+                          data-urgency="baja"
+                          onclick="setUrgency('baja')"
+                          type="button"
+                        >
+                          <span>Baja</span>
+                        </button>
+                        <!-- Media -->
+                        <button
+                          class="urgency-chip h-full flex items-center justify-center gap-1.5 rounded-lg bg-surface-container dark:bg-surface-container-low text-text-muted-light dark:text-text-muted-dark font-label-md text-label-md hover:bg-surface-container-high transition-all"
+                          data-urgency="media"
+                          onclick="setUrgency('media')"
+                          type="button"
+                        >
+                          <span>Media</span>
+                        </button>
+                        <!-- Alta (Selected) -->
+                        <button
+                          class="urgency-chip active-urgency h-full flex items-center justify-center gap-1.5 rounded-lg bg-urgency-alta-bg-light dark:bg-urgency-alta-bg-dark text-urgency-alta-text-light dark:text-urgency-alta-text-dark font-label-md text-label-md font-bold shadow-sm transition-all ring-2 ring-error"
+                          data-urgency="alta"
+                          onclick="setUrgency('alta')"
+                          type="button"
+                        >
+                          <span class="material-symbols-outlined text-[16px]"
+                            >priority_high</span
+                          >
+                          <span>Alta</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Descripción Técnica Exhaustiva -->
+                  <div class="flex flex-col gap-1.5">
+                    <label
+                      class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark flex items-center justify-between"
+                      for="req-specs"
+                    >
+                      <span
+                        >Descripción Técnica Exhaustiva y Alcance del Servicio
+                        *</span
+                      >
+                      <span
+                        class="font-label-sm text-label-sm text-text-muted-light dark:text-text-muted-dark"
+                        >Estándar ISO / SAE</span
+                      >
+                    </label>
+                    <textarea
+                      class="w-full p-3.5 bg-surface-light dark:bg-surface-container-low text-text-primary-light dark:text-text-primary-dark font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all leading-relaxed"
+                      id="req-specs"
+                      rows="4"
+                    >
+Suministro anual de mangueras hidráulicas de 4 y 6 mallas espiraladas de acero, resistentes a presiones de trabajo hasta 6,000 PSI, bajo norma SAE 100R15. Tolerancia térmica -40°C a +120°C. Incluye terminales prensados bridados y certificados de prueba hidrostática individual por lote según protocolo minero.</textarea
+                    >
+                    <div
+                      class="flex items-center gap-2 text-text-muted-light dark:text-text-muted-dark font-body-sm text-body-sm"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[16px] text-secondary"
+                        >info</span
+                      >
+                      <span
+                        >Las especificaciones mínimas son vinculantes para la
+                        calificación técnica sobre cerrado.</span
+                      >
+                    </div>
+                  </div>
+                  <!-- Drag-and-Drop File Upload Area -->
+                  <div class="flex flex-col gap-space-sm pt-space-xs">
+                    <label
+                      class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark"
+                    >
+                      Términos de Referencia, Planos y Anexos (TDR)
+                    </label>
+                    <!-- Upload Dropzone (no solid borders, subtle background wash with dash-effect feeling) -->
+                    <div
+                      class="relative bg-surface-container-lowest dark:bg-surface-container p-6 rounded-xl flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-container-low transition-colors group"
+                    >
+                      <div
+                        class="w-12 h-12 rounded-full bg-surface-light dark:bg-surface-dark flex items-center justify-center text-secondary shadow-sm mb-2 group-hover:scale-110 transition-transform"
+                      >
+                        <span class="material-symbols-outlined text-[28px]"
+                          >cloud_upload</span
+                        >
+                      </div>
+                      <p
+                        class="font-label-lg text-label-lg text-text-primary-light dark:text-text-primary-dark font-semibold"
+                      >
+                        Arrastra archivos PDF, DWG, XLSX aquí o
+                        <span
+                          class="text-secondary dark:text-secondary-fixed-dim underline underline-offset-2"
+                          >examina tu equipo</span
+                        >
+                      </p>
+                      <p
+                        class="font-body-sm text-body-sm text-text-muted-light dark:text-text-muted-dark mt-1"
+                      >
+                        Tamaño máximo por archivo: 25 MB. Encriptación en reposo
+                        y escaneo antivirus automático.
+                      </p>
+                      <input
+                        class="absolute inset-0 opacity-0 cursor-pointer"
+                        multiple=""
+                        type="file"
+                      />
+                    </div>
+                    <!-- Uploaded File Pill (With Progress 100%) -->
+                    <div
+                      class="bg-surface-container-lowest dark:bg-surface-container rounded-lg p-3 flex items-center justify-between gap-space-sm shadow-sm"
+                    >
+                      <div class="flex items-center gap-space-sm min-w-0">
+                        <div
+                          class="w-9 h-9 rounded-lg bg-error-container text-error flex items-center justify-center shrink-0"
+                        >
+                          <span class="material-symbols-outlined text-[20px]"
+                            >picture_as_pdf</span
+                          >
+                        </div>
+                        <div class="flex flex-col min-w-0">
+                          <div class="flex items-center gap-2">
+                            <span
+                              class="font-label-md text-label-md font-bold text-text-primary-light dark:text-text-primary-dark truncate"
+                            >
+                              Especificaciones_Tecnicas_Mangueras_v1.pdf
+                            </span>
+                            <span
+                              class="font-label-sm text-label-sm text-urgency-baja-text-light dark:text-urgency-baja-text-dark bg-urgency-baja-bg-light dark:bg-urgency-baja-bg-dark px-1.5 py-0.2 rounded font-bold"
+                            >
+                              100%
+                            </span>
+                          </div>
+                          <span
+                            class="font-body-sm text-body-sm text-text-muted-light dark:text-text-muted-dark"
+                          >
+                            3.4 MB • Firma digital verificada • Subido por
+                            Minera del Sur
+                          </span>
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-1 shrink-0">
+                        <button
+                          class="w-8 h-8 rounded-lg flex items-center justify-center text-text-muted-light hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container transition-colors"
+                          title="Previsualizar archivo"
+                          type="button"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >visibility</span
+                          >
+                        </button>
+                        <button
+                          class="w-8 h-8 rounded-lg flex items-center justify-center text-text-muted-light hover:text-error hover:bg-error-container/30 transition-colors"
+                          title="Remover archivo"
+                          type="button"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >delete</span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Section Card 3: Presupuesto Referencial y Plazos de Convocatoria -->
+              <div
+                class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm p-space-xl flex flex-col gap-space-lg transition-all"
+              >
+                <div
+                  class="flex flex-wrap items-center justify-between gap-space-sm pb-space-sm"
+                >
+                  <div class="flex items-center gap-space-sm">
+                    <div
+                      class="w-10 h-10 rounded-lg bg-surface-container-low dark:bg-surface-container flex items-center justify-center text-primary dark:text-primary-fixed"
+                    >
+                      <span class="material-symbols-outlined text-[24px]"
+                        >payments</span
+                      >
+                    </div>
+                    <div class="flex flex-col">
+                      <h2
+                        class="font-headline-sm text-headline-sm text-text-primary-light dark:text-text-primary-dark font-bold"
+                      >
+                        3. Presupuesto Referencial y Plazos de Convocatoria
+                      </h2>
+                      <span
+                        class="font-body-sm text-body-sm text-text-muted-light dark:text-text-muted-dark"
+                      >
+                        Condiciones económicas tope y calendario crítico del
+                        proceso licitatorio
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center gap-2 bg-surface-container dark:bg-surface-container-high px-3 py-1 rounded-full"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[16px] text-secondary"
+                      >lock</span
+                    >
+                    <span
+                      class="font-label-sm text-label-sm font-semibold text-text-primary-light dark:text-text-primary-dark"
+                      >Licitación Confidencial B2B</span
+                    >
+                  </div>
+                </div>
+                <!-- Commercial Data Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+                  <!-- Moneda -->
+                  <div class="flex flex-col gap-1.5">
+                    <label
+                      class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark"
+                      for="currency-select"
+                    >
+                      Moneda de Contratación
+                    </label>
+                    <div class="relative flex items-center">
+                      <select
+                        class="w-full h-11 pl-3.5 pr-10 appearance-none bg-surface-light dark:bg-surface-container-low text-text-primary-light dark:text-text-primary-dark font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all cursor-pointer"
+                        id="currency-select"
+                      >
+                        <option selected="" value="USD">
+                          Dólares Americanos (USD)
+                        </option>
+                        <option value="PEN">Soles Peruanos (PEN)</option>
+                      </select>
+                      <span
+                        class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none"
+                        >expand_more</span
+                      >
+                    </div>
+                  </div>
+                  <!-- Presupuesto Máximo Referencial -->
+                  <div class="flex flex-col gap-1.5">
+                    <label
+                      class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark flex items-center justify-between"
+                      for="max-budget"
+                    >
+                      <span>Presupuesto Máximo Referencial *</span>
+                      <span
+                        class="font-label-sm text-label-sm text-text-muted-light dark:text-text-muted-dark"
+                        >Techo máximo</span
+                      >
+                    </label>
+                    <div class="relative flex items-center">
+                      <span
+                        class="material-symbols-outlined absolute left-3 text-secondary text-[20px] pointer-events-none"
+                        >attach_money</span
+                      >
+                      <input
+                        class="w-full h-11 pl-10 pr-14 bg-surface-light dark:bg-surface-container-low text-text-primary-light dark:text-text-primary-dark font-numeric-metric text-numeric-metric font-bold rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all"
+                        id="max-budget"
+                        oninput="updateLiveBudget(this.value)"
+                        type="text"
+                        value="125,000.00"
+                      />
+                      <span
+                        class="absolute right-3.5 font-label-md text-label-md font-bold text-text-muted-light dark:text-text-muted-dark pointer-events-none"
+                        >USD</span
+                      >
+                    </div>
+                  </div>
+                  <!-- Checkbox de Impuestos -->
+                  <div
+                    class="md:col-span-2 flex items-center gap-space-sm bg-surface-container-lowest dark:bg-surface-container p-3 rounded-lg"
+                  >
+                    <input
+                      checked=""
+                      class="w-4 h-4 text-primary rounded accent-primary cursor-pointer"
+                      id="tax-included"
+                      type="checkbox"
+                    />
+                    <label
+                      class="font-body-sm text-body-sm text-text-primary-light dark:text-text-primary-dark cursor-pointer select-none"
+                      for="tax-included"
+                    >
+                      El monto máximo referencial incluye
+                      <strong class="font-semibold">IGV (18%)</strong>, flete
+                      terrestre especializado y seguro de transporte con entrega
+                      en almacén Mina Cuajone.
+                    </label>
+                  </div>
+                  <!-- Modalidad de Adjudicación -->
+                  <div class="flex flex-col gap-1.5">
+                    <label
+                      class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark"
+                      for="awarding-mode"
+                    >
+                      Modalidad de Adjudicación
+                    </label>
+                    <div class="relative flex items-center">
+                      <select
+                        class="w-full h-11 pl-3.5 pr-10 appearance-none bg-surface-light dark:bg-surface-container-low text-text-primary-light dark:text-text-primary-dark font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all cursor-pointer"
+                        id="awarding-mode"
+                      >
+                        <option selected="" value="sobre_cerrado">
+                          Subasta a Sobre Cerrado (Ciega)
+                        </option>
+                        <option value="ronda_directa">
+                          Ronda de Negociación Directa
+                        </option>
+                        <option value="licitacion_publica">
+                          Concurso Abierto Homologado
+                        </option>
+                      </select>
+                      <span
+                        class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none"
+                        >expand_more</span
+                      >
+                    </div>
+                  </div>
+                  <!-- Plazo Máximo de Entrega -->
+                  <div class="flex flex-col gap-1.5">
+                    <label
+                      class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark"
+                      for="delivery-deadline"
+                    >
+                      Plazo Máximo de Entrega en Destino
+                    </label>
+                    <div class="relative flex items-center">
+                      <span
+                        class="material-symbols-outlined absolute left-3 text-outline text-[20px] pointer-events-none"
+                        >local_shipping</span
+                      >
+                      <input
+                        class="w-full h-11 pl-10 pr-3.5 bg-surface-light dark:bg-surface-container-low text-text-primary-light dark:text-text-primary-dark font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all"
+                        id="delivery-deadline"
+                        type="text"
+                        value="15 días calendario"
+                      />
+                    </div>
+                  </div>
+                  <!-- Fecha y Hora Límite -->
+                  <div class="flex flex-col gap-1.5 md:col-span-2">
+                    <div class="flex items-center justify-between">
+                      <label
+                        class="font-label-md text-label-md font-semibold text-text-primary-light dark:text-text-primary-dark"
+                        for="close-datetime"
+                      >
+                        Fecha y Hora Límite para Recepción de Cotizaciones *
+                      </label>
+                      <span
+                        class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary dark:text-secondary-fixed-dim bg-secondary/10 px-2 py-0.5 rounded font-bold"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >timer</span
+                        >
+                        <span>Cierra en 12 días exactos</span>
+                      </span>
+                    </div>
+                    <div class="relative flex items-center">
+                      <span
+                        class="material-symbols-outlined absolute left-3 text-outline text-[20px] pointer-events-none"
+                        >calendar_clock</span
+                      >
+                      <input
+                        class="w-full h-11 pl-10 pr-10 bg-surface-light dark:bg-surface-container-low text-text-primary-light dark:text-text-primary-dark font-body-md text-body-md font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all"
+                        id="close-datetime"
+                        type="text"
+                        value="15 de Abril, 2026 - 18:00 hrs (GMT-5)"
+                      />
+                      <button
+                        aria-label="Abrir selector de calendario"
+                        class="absolute right-3 text-outline hover:text-primary transition-colors"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[20px]"
+                          >edit_calendar</span
+                        >
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Sticky Bottom Action Bar Inside Column -->
+              <div
+                class="bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-md rounded-xl p-space-md shadow-md flex flex-wrap items-center justify-between gap-space-md"
+              >
+                <div class="flex items-center gap-space-sm">
+                  <button
+                    class="inline-flex items-center justify-center gap-space-xs px-space-md py-2.5 bg-surface-container dark:bg-surface-container-high hover:bg-surface-container-highest text-on-surface dark:text-text-primary-dark font-label-lg text-label-lg rounded-lg shadow-sm transition-all font-semibold"
+                    type="button"
+                  >
+                    <span class="material-symbols-outlined text-[18px]"
+                      >save</span
+                    >
+                    <span>Guardar Borrador</span>
+                  </button>
+                  <button
+                    class="inline-flex items-center justify-center gap-space-xs px-space-md py-2.5 bg-surface-container-low dark:bg-surface-container hover:bg-surface-container text-primary dark:text-primary-fixed font-label-lg text-label-lg rounded-lg transition-all font-semibold"
+                    onclick="triggerQuickPreview()"
+                    type="button"
+                  >
+                    <span class="material-symbols-outlined text-[18px]"
+                      >preview</span
+                    >
+                    <span>Vista Rápida</span>
+                  </button>
+                </div>
+                <div class="flex items-center gap-space-sm">
+                  <a
+                    class="font-body-sm text-body-sm text-text-muted-light dark:text-text-muted-dark hover:underline mr-2 hidden sm:inline"
+                    href="#"
+                  >
+                    Cancelar
+                  </a>
+                  <button
+                    class="inline-flex items-center justify-center gap-space-xs px-space-xl py-3 bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg shadow-md hover:shadow-lg transition-all font-bold"
+                    onclick="publishTender()"
+                    type="button"
+                  >
+                    <span>Publicar Convocatoria en Vivo</span>
+                    <span class="material-symbols-outlined text-[20px]"
+                      >arrow_forward</span
+                    >
+                  </button>
+                </div>
+              </div>
+            </form>
+            <!-- Right Column: Sticky Summary & Real-time Live Preview (approx 30% -> 4 of 12 cols) -->
+            <aside
+              class="lg:col-span-4 flex flex-col gap-space-lg lg:sticky lg:top-20"
+            >
+              <!-- Target Card 1: Live Catalog Preview Card -->
+              <div
+                class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-md p-space-lg flex flex-col gap-space-md relative overflow-hidden transition-all"
+              >
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-1.5">
+                    <span
+                      class="w-2 h-2 rounded-full bg-secondary animate-ping"
+                    ></span>
+                    <span
+                      class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-secondary dark:text-secondary-fixed-dim"
+                    >
+                      Previsualización en Tiempo Real
+                    </span>
+                  </div>
+                  <span
+                    class="bg-surface-container-high dark:bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-2 py-0.5 rounded font-mono font-bold"
+                  >
+                    LIC-2026-0062
+                  </span>
+                </div>
+                <!-- Catalog Card Replication -->
+                <div
+                  class="bg-surface-container-lowest dark:bg-surface-container-low rounded-lg p-space-md shadow-sm flex flex-col gap-space-sm transition-all hover:shadow-md"
+                >
+                  <!-- Card Header Ribbon -->
+                  <div class="flex items-center justify-between gap-2">
+                    <span
+                      class="font-label-sm text-label-sm uppercase font-bold text-secondary tracking-wider"
+                      id="preview-category"
+                    >
+                      Mantenimiento Industrial
+                    </span>
+                    <span
+                      class="px-2 py-0.5 rounded-full font-label-sm text-label-sm font-bold bg-urgency-alta-bg-light dark:bg-urgency-alta-bg-dark text-urgency-alta-text-light dark:text-urgency-alta-text-dark"
+                      id="preview-urgency-badge"
+                    >
+                      Urgencia Alta
+                    </span>
+                  </div>
+                  <!-- Requirement Title Preview -->
+                  <h3
+                    class="font-headline-sm text-headline-sm font-bold text-text-primary-light dark:text-text-primary-dark line-clamp-2"
+                    id="preview-title"
+                  >
+                    Suministro de Repuestos y Mangueras Hidráulicas de Alta
+                    Presión para Maquinaria Pesada
+                  </h3>
+                  <!-- Buyer Details -->
+                  <div
+                    class="flex flex-col gap-0.5 text-text-muted-light dark:text-text-muted-dark font-body-sm text-body-sm"
+                  >
+                    <div
+                      class="flex items-center gap-1 text-text-primary-light dark:text-text-primary-dark font-semibold"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[16px] text-primary dark:text-primary-fixed"
+                        >domain</span
+                      >
+                      <span>Minera del Sur S.A.</span>
+                    </div>
+                    <div
+                      class="flex items-center gap-1 text-label-sm text-label-sm"
+                    >
+                      <span class="material-symbols-outlined text-[14px]"
+                        >pin_drop</span
+                      >
+                      <span class="truncate">Mina Cuajone, Moquegua</span>
+                    </div>
+                  </div>
+                  <!-- Commercial Highlights Strip -->
+                  <div
+                    class="bg-surface-light dark:bg-surface-dark p-2.5 rounded-lg grid grid-cols-2 gap-2 mt-1"
+                  >
+                    <div class="flex flex-col">
+                      <span
+                        class="font-label-sm text-label-sm text-text-muted-light dark:text-text-muted-dark"
+                        >Presupuesto Máximo</span
+                      >
+                      <span
+                        class="font-numeric-metric text-numeric-metric text-primary dark:text-primary-fixed font-bold"
+                        id="preview-budget"
+                      >
+                        $ 125,000.00
+                      </span>
+                    </div>
+                    <div class="flex flex-col text-right">
+                      <span
+                        class="font-label-sm text-label-sm text-text-muted-light dark:text-text-muted-dark"
+                        >Vigencia Licitación</span
+                      >
+                      <span
+                        class="font-label-md text-label-md font-bold text-urgency-baja-text-light dark:text-urgency-baja-text-dark flex items-center justify-end gap-1"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >schedule</span
+                        >
+                        <span>12 días</span>
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Mock Action Strip -->
+                  <button
+                    class="w-full mt-1 py-2 px-3 bg-surface-container-high dark:bg-surface-container text-primary dark:text-primary-fixed font-label-md text-label-md rounded-lg font-semibold flex items-center justify-center gap-1 opacity-75 cursor-not-allowed"
+                    disabled=""
+                    type="button"
+                  >
+                    <span>Ver Ficha Técnica</span>
+                    <span class="material-symbols-outlined text-[16px]"
+                      >open_in_new</span
+                    >
+                  </button>
+                </div>
+                <div
+                  class="text-[11px] font-body-sm text-text-muted-light dark:text-text-muted-dark text-center"
+                >
+                  Esta tarjeta se exhibirá con sello institucional en el feed
+                  principal de licitaciones públicas y privadas de NexoB2B.
+                </div>
+              </div>
+              <!-- Target Card 2: Checklist de Validación Pre-Publicación -->
+              <div
+                class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md"
+              >
+                <div class="flex items-center justify-between">
+                  <h3
+                    class="font-headline-sm text-headline-sm font-bold text-text-primary-light dark:text-text-primary-dark"
+                  >
+                    Checklist de Publicación
+                  </h3>
+                  <span
+                    class="font-label-sm text-label-sm font-bold text-urgency-baja-text-light dark:text-urgency-baja-text-dark bg-urgency-baja-bg-light dark:bg-urgency-baja-bg-dark px-2 py-0.5 rounded-full"
+                  >
+                    100% Completo
+                  </span>
+                </div>
+                <!-- Progress Bar Indicator -->
+                <div
+                  class="w-full bg-surface-container-high dark:bg-surface-container h-2 rounded-full overflow-hidden"
+                >
+                  <div
+                    class="bg-urgency-baja-text-light dark:bg-urgency-baja-text-dark h-full rounded-full transition-all duration-500"
+                    style="width: 100%"
+                  ></div>
+                </div>
+                <p
+                  class="font-body-sm text-body-sm text-text-muted-light dark:text-text-muted-dark"
+                >
+                  <strong
+                    class="font-semibold text-text-primary-light dark:text-text-primary-dark"
+                    >4 de 4</strong
+                  >
+                  criterios de gobernanza y trazabilidad superados:
+                </p>
+                <!-- Checklist Elements -->
+                <ul class="flex flex-col gap-2.5">
+                  <li
+                    class="flex items-start gap-2.5 text-body-sm font-body-sm text-text-primary-light dark:text-text-primary-dark"
+                  >
+                    <span
+                      class="material-symbols-outlined text-urgency-baja-text-light dark:text-urgency-baja-text-dark text-[18px] shrink-0 mt-0.5"
+                      >check_circle</span
+                    >
+                    <span
+                      >RUC <strong>20549812401</strong> homologado ante SUNAT
+                      como contribuyente Activo y Habido.</span
+                    >
+                  </li>
+                  <li
+                    class="flex items-start gap-2.5 text-body-sm font-body-sm text-text-primary-light dark:text-text-primary-dark"
+                  >
+                    <span
+                      class="material-symbols-outlined text-urgency-baja-text-light dark:text-urgency-baja-text-dark text-[18px] shrink-0 mt-0.5"
+                      >check_circle</span
+                    >
+                    <span
+                      >Partida presupuestal asignada y bloqueada en SAP Centro
+                      de Costos <strong>CC-2026-OP-MIN-089</strong>.</span
+                    >
+                  </li>
+                  <li
+                    class="flex items-start gap-2.5 text-body-sm font-body-sm text-text-primary-light dark:text-text-primary-dark"
+                  >
+                    <span
+                      class="material-symbols-outlined text-urgency-baja-text-light dark:text-urgency-baja-text-dark text-[18px] shrink-0 mt-0.5"
+                      >check_circle</span
+                    >
+                    <span
+                      >Términos de Referencia (TDR) técnicos adjuntos en PDF con
+                      validación de integridad criptográfica.</span
+                    >
+                  </li>
+                  <li
+                    class="flex items-start gap-2.5 text-body-sm font-body-sm text-text-primary-light dark:text-text-primary-dark"
+                  >
+                    <span
+                      class="material-symbols-outlined text-urgency-baja-text-light dark:text-urgency-baja-text-dark text-[18px] shrink-0 mt-0.5"
+                      >check_circle</span
+                    >
+                    <span
+                      >Póliza de seguro SCTR y fianza de fiel cumplimiento
+                      obligatorias para el proveedor ganador.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+              <!-- Target Card 3: Alcance Estimado de Proveedores -->
+              <div
+                class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md"
+              >
+                <div class="flex items-center gap-space-sm">
+                  <div
+                    class="w-9 h-9 rounded-lg bg-surface-container-high dark:bg-surface-container flex items-center justify-center text-primary dark:text-primary-fixed"
+                  >
+                    <span class="material-symbols-outlined text-[20px]"
+                      >hub</span
+                    >
+                  </div>
+                  <div class="flex flex-col">
+                    <h4
+                      class="font-label-lg text-label-lg font-bold text-text-primary-light dark:text-text-primary-dark"
+                    >
+                      Alcance y Difusión B2B
+                    </h4>
+                    <span
+                      class="font-body-sm text-body-sm text-text-muted-light dark:text-text-muted-dark"
+                    >
+                      Red de Abastecimiento Corporativo
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="bg-surface-container-lowest dark:bg-surface-container-low p-space-md rounded-lg flex items-center gap-space-md"
+                >
+                  <!-- Inline Mini Donut / Metric Chart -->
+                  <div
+                    class="relative w-14 h-14 shrink-0 flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-full h-full transform -rotate-90"
+                      viewBox="0 0 36 36"
+                    >
+                      <path
+                        class="text-surface-container-high dark:text-surface-container"
+                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3.5"
+                      ></path>
+                      <path
+                        class="text-secondary"
+                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-dasharray="88, 100"
+                        stroke-linecap="round"
+                        stroke-width="3.5"
+                      ></path>
+                    </svg>
+                    <span
+                      class="absolute font-numeric-metric text-numeric-metric font-bold text-text-primary-light dark:text-text-primary-dark"
+                      >38</span
+                    >
+                  </div>
+                  <div class="flex flex-col">
+                    <span
+                      class="font-label-md text-label-md font-bold text-text-primary-light dark:text-text-primary-dark"
+                    >
+                      38 Proveedores Homologados
+                    </span>
+                    <span
+                      class="font-body-sm text-body-sm text-text-muted-light dark:text-text-muted-dark leading-tight mt-0.5"
+                    >
+                      Recibirán notificación inmediata por correo electrónico y
+                      WhatsApp oficial NexoB2B.
+                    </span>
+                  </div>
+                </div>
+                <!-- Speed & Benchmark Strip -->
+                <div
+                  class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low dark:bg-surface-container font-body-sm text-body-sm"
+                >
+                  <div
+                    class="flex items-center gap-1.5 text-text-muted-light dark:text-text-muted-dark"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[16px] text-primary dark:text-primary-fixed"
+                      >bolt</span
+                    >
+                    <span>1ª cotización estimada:</span>
+                  </div>
+                  <span
+                    class="font-numeric-metric text-numeric-metric font-bold text-primary dark:text-primary-fixed"
+                  >
+                    ~ 4.2 horas
+                  </span>
+                </div>
+                <div
+                  class="flex items-center gap-2 text-text-muted-light dark:text-text-muted-dark text-[11px] font-body-sm pt-1"
+                >
+                  <span class="material-symbols-outlined text-[14px]"
+                    >shield</span
+                  >
+                  <span
+                    >Todos los postores cuentan con seguro complementario SCTR
+                    vigente.</span
+                  >
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+        <!-- Notification Banner Modal / Toast container on trigger -->
+        <div
+          class="fixed bottom-6 right-6 max-w-md bg-surface-dark text-text-primary-dark p-4 rounded-xl shadow-xl flex items-center gap-3 transform translate-y-32 opacity-0 pointer-events-none transition-all duration-300 z-50"
+          id="publish-toast"
+        >
+          <div
+            class="w-10 h-10 rounded-lg bg-urgency-baja-bg-light text-urgency-baja-text-light flex items-center justify-center shrink-0"
+          >
+            <span class="material-symbols-outlined text-[24px]">verified</span>
+          </div>
+          <div class="flex flex-col flex-1">
+            <span class="font-label-md text-label-md font-bold"
+              >¡Convocatoria Publicada con Éxito!</span
+            >
+            <span class="font-body-sm text-body-sm text-text-muted-dark"
+              >Código LIC-2026-0062 activo en el catálogo nacional.</span
+            >
+          </div>
+          <button
+            class="text-text-muted-dark hover:text-white"
+            onclick="closeToast()"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[18px]">close</span>
+          </button>
+        </div>
+        <script>
+          // Live update functions between Form and Sidebar Preview
+          const reqTitleInput = document.getElementById("req-title");
+          const previewTitle = document.getElementById("preview-title");
+          const charCounter = document.getElementById("char-counter");
+          const reqCatSelect = document.getElementById("req-category");
+          const previewCategory = document.getElementById("preview-category");
+
+          if (reqTitleInput && previewTitle && charCounter) {
+            reqTitleInput.addEventListener("input", function () {
+              const val = this.value.trim();
+              previewTitle.textContent =
+                val.length > 0 ? val : "Sin título de convocatoria";
+              charCounter.textContent = this.value.length + " / 120 caracteres";
+            });
+          }
+
+          if (reqCatSelect && previewCategory) {
+            reqCatSelect.addEventListener("change", function () {
+              previewCategory.textContent = this.value;
+            });
+          }
+
+          function updateLiveBudget(val) {
+            const budgetPreview = document.getElementById("preview-budget");
+            const currency = document.getElementById("currency-select").value;
+            const symbol = currency === "PEN" ? "S/ " : "$ ";
+            if (budgetPreview) {
+              budgetPreview.textContent = symbol + (val ? val : "0.00");
+            }
+          }
+
+          // Urgency Chip Selector
+          function setUrgency(level) {
+            const chips = document.querySelectorAll(".urgency-chip");
+            const badge = document.getElementById("preview-urgency-badge");
+
+            chips.forEach((chip) => {
+              chip.className =
+                "urgency-chip h-full flex items-center justify-center gap-1.5 rounded-lg bg-surface-container dark:bg-surface-container-low text-text-muted-light dark:text-text-muted-dark font-label-md text-label-md hover:bg-surface-container-high transition-all";
+            });
+
+            const selected = document.querySelector(
+              `[data-urgency="${level}"]`,
+            );
+            if (level === "alta") {
+              selected.className =
+                "urgency-chip active-urgency h-full flex items-center justify-center gap-1.5 rounded-lg bg-urgency-alta-bg-light dark:bg-urgency-alta-bg-dark text-urgency-alta-text-light dark:text-urgency-alta-text-dark font-label-md text-label-md font-bold shadow-sm transition-all ring-2 ring-error";
+              if (badge) {
+                badge.textContent = "Urgencia Alta";
+                badge.className =
+                  "px-2 py-0.5 rounded-full font-label-sm text-label-sm font-bold bg-urgency-alta-bg-light dark:bg-urgency-alta-bg-dark text-urgency-alta-text-light dark:text-urgency-alta-text-dark";
+              }
+            } else if (level === "media") {
+              selected.className =
+                "urgency-chip active-urgency h-full flex items-center justify-center gap-1.5 rounded-lg bg-urgency-media-bg-light dark:bg-urgency-media-bg-dark text-urgency-media-text-light dark:text-urgency-media-text-dark font-label-md text-label-md font-bold shadow-sm transition-all ring-2 ring-urgency-media-text-light";
+              if (badge) {
+                badge.textContent = "Urgencia Media";
+                badge.className =
+                  "px-2 py-0.5 rounded-full font-label-sm text-label-sm font-bold bg-urgency-media-bg-light dark:bg-urgency-media-bg-dark text-urgency-media-text-light dark:text-urgency-media-text-dark";
+              }
+            } else {
+              selected.className =
+                "urgency-chip active-urgency h-full flex items-center justify-center gap-1.5 rounded-lg bg-urgency-baja-bg-light dark:bg-urgency-baja-bg-dark text-urgency-baja-text-light dark:text-urgency-baja-text-dark font-label-md text-label-md font-bold shadow-sm transition-all ring-2 ring-urgency-baja-text-light";
+              if (badge) {
+                badge.textContent = "Urgencia Baja";
+                badge.className =
+                  "px-2 py-0.5 rounded-full font-label-sm text-label-sm font-bold bg-urgency-baja-bg-light dark:bg-urgency-baja-bg-dark text-urgency-baja-text-light dark:text-urgency-baja-text-dark";
+              }
+            }
+          }
+
+          // Publish & Preview Toasts
+          function publishTender() {
+            const toast = document.getElementById("publish-toast");
+            if (toast) {
+              toast.classList.remove(
+                "translate-y-32",
+                "opacity-0",
+                "pointer-events-none",
+              );
+              setTimeout(() => {
+                closeToast();
+              }, 5000);
+            }
+          }
+
+          function closeToast() {
+            const toast = document.getElementById("publish-toast");
+            if (toast) {
+              toast.classList.add(
+                "translate-y-32",
+                "opacity-0",
+                "pointer-events-none",
+              );
+            }
+          }
+
+          function triggerQuickPreview() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            const previewCard = document.getElementById("preview-title");
+            if (previewCard) {
+              previewCard.parentElement.classList.add("scale-105");
+              setTimeout(() => {
+                previewCard.parentElement.classList.remove("scale-105");
+              }, 300);
+            }
+          }
+        </script>
+      </div>
+    </main>
+    <footer
+      class="w-full bg-surface-container-lowest dark:bg-surface-dark shadow-[0_-1px_8px_rgba(0,0,0,0.02)] py-space-xl"
+    >
+      <div
+        class="max-w-[1440px] mx-auto px-gutter-sm lg:px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-text-muted-light dark:text-text-muted-dark"
+      >
+        <div class="flex items-center gap-space-sm">
+          <span
+            class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed font-bold tracking-tight"
+            >NexoB2B</span
+          ><span
+            >© 2026 NexoB2B Inc. Todos los derechos reservados. Red de
+            Abastecimiento Corporativo.</span
+          >
+        </div>
+        <div class="flex items-center gap-space-lg">
+          <a
+            class="hover:text-primary dark:hover:text-primary-fixed transition-colors"
+            href="#"
+            >Términos Legales</a
+          ><a
+            class="hover:text-primary dark:hover:text-primary-fixed transition-colors"
+            href="#"
+            >Políticas de Licitación</a
+          ><a
+            class="hover:text-primary dark:hover:text-primary-fixed transition-colors"
+            href="#"
+            >Centro de Soporte B2B</a
+          ><a
+            class="hover:text-primary dark:hover:text-primary-fixed transition-colors"
+            href="#"
+            >Seguridad Operativa</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
