@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexoB2B - Portal de Licitaciones y Requerimientos</title>
+  
+  <!-- Hojas de estilo modularizadas -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Barra superior / Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <span class="brand-badge">B2B</span>
+        <h1>NexoB2B</h1>
+      </div>
+      <div class="header-actions">
+        <button id="btn-open-create-modal" class="btn btn-primary">
+          + Publicar Requerimiento
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenedor principal de 2 columnas -->
+  <div class="app-layout">
+    
+    <!-- Barra lateral de filtros -->
+    <aside class="filters-sidebar" aria-label="Filtros de búsqueda">
+      <div class="sidebar-header">
+        <h2>Filtros</h2>
+        <button id="btn-clear-filters" class="btn-link">Limpiar todo</button>
+      </div>
+
+      <form id="filters-form" class="filters-form" onsubmit="return false;">
+        <!-- Búsqueda textual -->
+        <div class="form-group">
+          <label for="filter-search">Buscar por término</label>
+          <input 
+            type="search" 
+            id="filter-search" 
+            placeholder="Ej. Cajas, Mantenimiento..." 
+            autocomplete="off"
+          >
+        </div>
+
+        <!-- Categoría -->
+        <div class="form-group">
+          <label for="filter-category">Categoría</label>
+          <select id="filter-category">
+            <option value="">Todas las categorías</option>
+            <option value="PACKAGING">Empaques y Embalajes</option>
+            <option value="MAINTENANCE">Mantenimiento y Reparación</option>
+            <option value="RAW_MATERIALS">Materia Prima e Insumos</option>
+            <option value="LOGISTICS">Logística y Transporte</option>
+            <option value="IT_SERVICES">Servicios de TI y Software</option>
+          </select>
+        </div>
+
+        <!-- Nivel de Urgencia -->
+        <div class="form-group">
+          <label for="filter-urgency">Urgencia</label>
+          <select id="filter-urgency">
+            <option value="">Todos los niveles</option>
+            <option value="LOW">Baja</option>
+            <option value="MEDIUM">Media</option>
+            <option value="HIGH">Alta</option>
+          </select>
+        </div>
+
+        <!-- Estado de la licitación -->
+        <div class="form-group">
+          <label for="filter-status">Estado</label>
+          <select id="filter-status">
+            <option value="">Todos los estados</option>
+            <option value="OPEN">Abierto a cotizaciones</option>
+            <option value="AWARDED">Adjudicado</option>
+            <option value="CLOSED">Cerrado</option>
+          </select>
+        </div>
+
+        <!-- Rango de Presupuesto -->
+        <div class="form-group">
+          <label>Presupuesto Máximo (S/)</label>
+          <div class="budget-inputs">
+            <input 
+              type="number" 
+              id="filter-min-budget" 
+              placeholder="Mínimo" 
+              min="0" 
+              step="100"
+            >
+            <input 
+              type="number" 
+              id="filter-max-budget" 
+              placeholder="Máximo" 
+              min="0" 
+              step="100"
+            >
+          </div>
+        </div>
+      </form>
+    </aside>
+
+    <!-- Área de resultados y catálogo -->
+    <main class="catalog-main">
+      <div class="catalog-header">
+        <div>
+          <span id="results-count" class="results-count">Cargando licitaciones...</span>
+        </div>
+        <div class="sort-container">
+          <label for="filter-sort-by">Ordenar por:</label>
+          <select id="filter-sort-by">
+            <option value="createdAt_desc">Más recientes primero</option>
+            <option value="deadline_asc">Próximos a vencer</option>
+            <option value="budget_desc">Mayor presupuesto</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Cuadrícula donde JavaScript renderizará las tarjetas -->
+      <section id="catalog-grid" class="catalog-grid" aria-live="polite">
+        <!-- Renderizado dinámico desde JS -->
+      </section>
+
+      <!-- Paginación -->
+      <nav id="pagination-controls" class="pagination-controls" aria-label="Navegación de páginas">
+        <!-- Botones de paginación renderizados desde JS -->
+      </nav>
+    </main>
+
+  </div>
+
+  <!-- Modal Nativo: Detalle de Licitación y Cotizaciones -->
+  <dialog id="detail-modal" class="modal">
+    <div class="modal-content">
+      <header class="modal-header">
+        <div id="modal-header-badges" class="modal-badges"></div>
+        <h2 id="modal-title">Título del requerimiento</h2>
+        <button id="btn-close-detail-modal" class="btn-close" aria-label="Cerrar modal">&times;</button>
+      </header>
+
+      <div class="modal-body">
+        <!-- Especificaciones técnicas del requerimiento -->
+        <section class="requirement-specs">
+          <h3>Detalle del Requerimiento</h3>
+          <p id="modal-description" class="modal-description"></p>
+          
+          <div class="specs-grid">
+            <div>
+              <span class="spec-label">Empresa Compradora:</span>
+              <strong id="modal-buyer-name">-</strong>
+            </div>
+            <div>
+              <span class="spec-label">RUC Comprador:</span>
+              <strong id="modal-buyer-ruc">-</strong>
+            </div>
+            <div>
+              <span class="spec-label">Ubicación de Entrega:</span>
+              <strong id="modal-location">-</strong>
+            </div>
+            <div>
+              <span class="spec-label">Presupuesto Referencial:</span>
+              <strong id="modal-budget">-</strong>
+            </div>
+            <div>
+              <span class="spec-label">Fecha Límite:</span>
+              <strong id="modal-deadline">-</strong>
+            </div>
+            <div>
+              <span class="spec-label">Tiempo Restante:</span>
+              <strong id="modal-remaining-time">-</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Formulario para postular cotización -->
+        <section id="quote-submission-section" class="quote-submission-section">
+          <h3>Enviar Propuesta Económica</h3>
+          
+          <div id="quote-form-alert" class="alert-box" style="display: none;"></div>
+
+          <form id="quote-form" class="quote-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="quote-supplier-tax-id">RUC Proveedor (11 dígitos) *</label>
+                <input 
+                  type="text" 
+                  id="quote-supplier-tax-id" 
+                  maxlength="11" 
+                  placeholder="20123456789" 
+                  required
+                >
+                <span class="field-error" id="error-quote-supplier-tax-id"></span>
+              </div>
+              <div class="form-group">
+                <label for="quote-supplier-name">Razón Social Proveedor *</label>
+                <input 
+                  type="text" 
+                  id="quote-supplier-name" 
+                  placeholder="Nombre de tu empresa" 
+                  required
+                >
+                <span class="field-error" id="error-quote-supplier-name"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="quote-supplier-email">Correo Electrónico de Contacto *</label>
+                <input 
+                  type="email" 
+                  id="quote-supplier-email" 
+                  placeholder="ventas@tuempresa.pe" 
+                  required
+                >
+                <span class="field-error" id="error-quote-supplier-email"></span>
+              </div>
+              <div class="form-group">
+                <label for="quote-offered-amount">Monto Ofertado (<span id="quote-currency-symbol">S/</span>) *</label>
+                <input 
+                  type="number" 
+                  id="quote-offered-amount" 
+                  step="0.01" 
+                  min="1" 
+                  placeholder="0.00" 
+                  required
+                >
+                <span class="field-error" id="error-quote-offered-amount"></span>
+              </div>
+              <div class="form-group">
+                <label for="quote-delivery-days">Plazo de Entrega (Días) *</label>
+                <input 
+                  type="number" 
+                  id="quote-delivery-days" 
+                  min="1" 
+                  max="365" 
+                  placeholder="15" 
+                  required
+                >
+                <span class="field-error" id="error-quote-delivery-days"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="quote-notes">Notas Técnicas y Términos Comerciales</label>
+              <textarea 
+                id="quote-notes" 
+                rows="3" 
+                placeholder="Indica condiciones de pago, garantías o características de los insumos ofertados..."
+              ></textarea>
+              <span class="field-error" id="error-quote-notes"></span>
+            </div>
+
+            <button type="submit" id="btn-submit-quote" class="btn btn-primary">
+              Registrar Cotización
+            </button>
+          </form>
+        </section>
+
+        <!-- Listado de cotizaciones recibidas -->
+        <section class="quotes-list-section">
+          <h3>Cotizaciones Registradas (<span id="modal-quotes-count">0</span>)</h3>
+          <div class="table-responsive">
+            <table class="quotes-table">
+              <thead>
+                <tr>
+                  <th>Proveedor</th>
+                  <th>Monto Ofertado</th>
+                  <th>Plazo</th>
+                  <th>Estado</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody id="modal-quotes-tbody">
+                <!-- Filas de cotizaciones renderizadas desde JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Modal Nativo: Crear Nuevo Requerimiento -->
+  <dialog id="create-requirement-modal" class="modal">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2>Publicar Nuevo Requerimiento</h2>
+        <button id="btn-close-create-modal" class="btn-close" aria-label="Cerrar modal">&times;</button>
+      </header>
+
+      <div class="modal-body">
+        <form id="create-requirement-form" class="requirement-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="req-buyer-tax-id">RUC Empresa Compradora (11 dígitos) *</label>
+              <input type="text" id="req-buyer-tax-id" maxlength="11" placeholder="20601234567" required>
+              <span class="field-error" id="error-req-buyer-tax-id"></span>
+            </div>
+            <div class="form-group">
+              <label for="req-buyer-name">Razón Social *</label>
+              <input type="text" id="req-buyer-name" placeholder="Empresa SAC" required>
+              <span class="field-error" id="error-req-buyer-name"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="req-buyer-email">Correo de Contacto *</label>
+              <input type="email" id="req-buyer-email" placeholder="compras@empresa.pe" required>
+              <span class="field-error" id="error-req-buyer-email"></span>
+            </div>
+            <div class="form-group">
+              <label for="req-location">Ubicación de Entrega *</label>
+              <input type="text" id="req-location" placeholder="Ciudad o almacén" required>
+              <span class="field-error" id="error-req-location"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="req-title">Título del Requerimiento *</label>
+            <input type="text" id="req-title" placeholder="Ej. Adquisición de 1,000 unidades de..." required>
+            <span class="field-error" id="error-req-title"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="req-description">Especificaciones Técnicas Detalladas *</label>
+            <textarea id="req-description" rows="4" placeholder="Describe materiales, medidas, tolerancias y estándares requeridos..." required></textarea>
+            <span class="field-error" id="error-req-description"></span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="req-category">Categoría *</label>
+              <select id="req-category" required>
+                <option value="PACKAGING">Empaques y Embalajes</option>
+                <option value="MAINTENANCE">Mantenimiento y Reparación</option>
+                <option value="RAW_MATERIALS">Materia Prima e Insumos</option>
+                <option value="LOGISTICS">Logística y Transporte</option>
+                <option value="IT_SERVICES">Servicios de TI y Software</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="req-urgency">Urgencia *</label>
+              <select id="req-urgency" required>
+                <option value="LOW">Baja</option>
+                <option value="MEDIUM" selected>Media</option>
+                <option value="HIGH">Alta</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="req-budget">Presupuesto Máximo Referencial *</label>
+              <input type="number" id="req-budget" step="0.01" min="1" placeholder="5000.00" required>
+              <span class="field-error" id="error-req-budget"></span>
+            </div>
+            <div class="form-group">
+              <label for="req-currency">Moneda *</label>
+              <select id="req-currency" required>
+                <option value="PEN">Soles (PEN)</option>
+                <option value="USD">Dólares (USD)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="req-deadline">Fecha Límite para Cotizar *</label>
+              <input type="date" id="req-deadline" required>
+              <span class="field-error" id="error-req-deadline"></span>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button type="submit" id="btn-submit-requirement" class="btn btn-primary">
+              Publicar Licitación
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Contenedor flotante de notificaciones Toast -->
+  <div id="toast-container" class="toast-container" aria-live="assertive"></div>
+
+  <!-- Punto de entrada modular JavaScript -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
